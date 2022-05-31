@@ -12,17 +12,22 @@ Create .env file in root folder of project
 Copy content of .env.example and paste it into .env
 
 Set Following Database Variables as per your machine
+```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=remotestar
 DB_USERNAME=remotestar
 DB_PASSWORD=remotestar
+```
 
 Set Following variable to value of 'database'
+```
 QUEUE_CONNECTION=database
+```
 
 Set Following Email related variables
+```
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=465
@@ -31,6 +36,7 @@ MAIL_PASSWORD=####
 MAIL_ENCRYPTION=ssl
 MAIL_FROM_ADDRESS=akash.officials@gmail.com
 MAIL_FROM_NAME=AkashSutariya
+```
 
 Here if you are using Gamil's SMTP you have to create APP password,
 You may visit below link for help
