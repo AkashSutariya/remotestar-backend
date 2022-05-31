@@ -5,18 +5,32 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\Website;
+use Illuminate\Testing\Fluent\AssertableJson;
 
 class WebsiteTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * A get all webite api test.
      *
      * @return void
      */
-    public function test_example()
+    public function test_index_response()
     {
-        $response = $this->get('/');
+        $websites = Website::all();
 
-        $response->assertStatus(200);
+        $response = $this->getJson('/api/websites');
+        $response->assertOk();
+        $response->assertJsonStructure([
+            'data' => [
+                '*' => [
+                    'id',
+                    'name',
+                ]
+            ]
+        ]);
+        $response->assertJson(fn (AssertableJson $json) =>
+            $json->has('data', $websites->count())
+        );
     }
 }

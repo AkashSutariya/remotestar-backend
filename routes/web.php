@@ -16,9 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-// \DB::listen(function($sql) {
-//     \Log::info($sql->sql);
-//     \Log::info($sql->bindings);
-//     \Log::info($sql->time);
-// });

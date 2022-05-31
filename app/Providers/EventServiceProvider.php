@@ -13,17 +13,23 @@ use App\Listeners\SendNewWebsitePostEMailNotification;
 class EventServiceProvider extends ServiceProvider
 {
     /**
+     * The event listener mappings for the application.
+     *
+     * @var array
+     */
+    protected $listen = [
+        NewWebsitePostCreated::class => [
+            SendNewWebsitePostEMailNotification::class,
+        ],
+    ];
+    /**
      * Register any events for your application.
      *
      * @return void
      */
     public function boot()
     {
-        Event::listen(
-            NewWebsitePostCreated::class,
-            [SendNewWebsitePostEMailNotification::class, 'handle']
-        );
-    
+        //
     }
 
     /**
