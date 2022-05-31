@@ -24,7 +24,7 @@ class WebsitePostTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_create_website_post()
     {
         // Faking Mockers
         Event::fake();
@@ -98,5 +98,8 @@ class WebsitePostTest extends TestCase
         } else {
             Mail::assertNothingSent();
         }
+
+        // Delete Data
+        $post->delete();
     }
 }
