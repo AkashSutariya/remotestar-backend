@@ -35,9 +35,7 @@ class WebsiteSeeder extends Seeder
 
         foreach ($websites as $website) {
             try {
-                $newWebsite = new Website();
-                $newWebsite->name = $website['name'];
-                $newWebsite->save();
+                Website::create($website);
             } catch(QueryException $e) {
                 if($e->getCode() === "23000") {
                     continue;

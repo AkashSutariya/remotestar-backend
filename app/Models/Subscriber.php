@@ -13,6 +13,13 @@ class Subscriber extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['email'];
+
+    /**
      * The websites that belong to the subsciber.
      */
     public function websites()

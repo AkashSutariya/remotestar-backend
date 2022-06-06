@@ -50,9 +50,7 @@ class SubscriptionTest extends TestCase
             $website = $websites[0];
         } else {
             $fakewebsiteCreated = true;
-            $website = new Website();
-            $website->name = 'Fake website';
-            $website->save();
+            $website = Website::create(['name' => 'Fake website']);
         }
 
         

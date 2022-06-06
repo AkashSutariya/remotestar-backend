@@ -26,13 +26,7 @@ class SubscriberController extends Controller
         // Select or Create Subscriber
         $subscriber = Subscriber::where('email', $request->email)
             ->firstOr(function () use ($request) {
-
-                //Create New Sunscriber
-                $newSubscriber = new Subscriber();
-                $newSubscriber->email = $request->email;
-                $newSubscriber->save();
-
-                return $newSubscriber;
+                return Subscriber::create($request->all());
             });
         
         // Sync subscriber with website subscription

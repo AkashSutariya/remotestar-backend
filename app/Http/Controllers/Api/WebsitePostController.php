@@ -26,13 +26,8 @@ class WebsitePostController extends Controller
      */
     public function store(StoreWebsitePostRequest $request, Website $website)
     {
-        $websitePost = new WebsitePost();
-
-        $websitePost->website_id = $website->id;
-        $websitePost->title = $request->title;
-        $websitePost->description = $request->description;
-
-        $websitePost->save();
+        // Create and Store New Website Post
+        $websitePost = $website->posts()->create($request->all());
 
         // Dispatch Event
         NewWebsitePostCreated::dispatch($websitePost, $website->subscribers);

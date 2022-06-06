@@ -13,6 +13,13 @@ class WebsitePost extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['title', 'description'];
+
+    /**
      * Get the website that owns the post.
      */
     public function website()
